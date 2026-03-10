@@ -7,7 +7,7 @@ struct OraCommands: Commands {
     @AppStorage("ui.toolbar.hidden") private var isToolbarHidden: Bool = false
     @AppStorage("ui.toolbar.showfullurl") private var showFullURL: Bool = true
     @Environment(\.openWindow) private var openWindow
-
+    
     var body: some Commands {
         CommandGroup(replacing: .newItem) {
             Button("New Window") { openWindow(id: "normal") }
