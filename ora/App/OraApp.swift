@@ -3,7 +3,7 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-class AppDelegate: NSObject, NSApplicationDelegate {
+class OraAppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         // Disable automatic window tabbing for all NSWindow instances
         NSWindow.allowsAutomaticWindowTabbing = false
@@ -64,9 +64,8 @@ class AppState: ObservableObject {
     @Published var isFullscreen: Bool = false
 }
 
-@main
 struct OraApp: App {
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @NSApplicationDelegateAdaptor(OraAppDelegate.self) var appDelegate
 
     /// Shared model container that uses the same configuration as the main browser
     private let sharedModelContainer: ModelContainer? =

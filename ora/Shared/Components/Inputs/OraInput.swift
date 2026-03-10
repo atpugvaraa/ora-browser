@@ -157,63 +157,63 @@ struct OraInput: View {
 
 // MARK: - Preview
 
-#Preview {
-    @Previewable @State var text1 = ""
-    @Previewable @State var text2 = "ora-browser"
-    @Previewable @State var text3 = ""
-    @Previewable @State var text4 = ""
-    @Previewable @State var text5 = ""
-    @Previewable @State var text6 = ""
-
-    VStack(alignment: .leading, spacing: 20) {
-        Group {
-            Text("Default").font(.caption).foregroundStyle(.secondary)
-            OraInput(text: $text1, placeholder: "Enter value…")
-            OraInput(text: $text2, placeholder: "Enter value…", label: "Repository name")
-            OraInput(
-                text: $text3,
-                placeholder: "Enter value…",
-                label: "With hint",
-                hint: "This is a helper message"
-            )
-            OraInput(
-                text: $text4,
-                placeholder: "Enter value…",
-                label: "With error",
-                error: "This field is required"
-            )
-        }
-
-        Group {
-            Text("Outline").font(.caption).foregroundStyle(.secondary)
-            OraInput(text: $text5, placeholder: "Search…", variant: .outline, leadingIcon: "magnifyingglass")
-            OraInput(text: $text6, placeholder: "Disabled", variant: .outline, isDisabled: true)
-        }
-
-        Group {
-            Text("Ghost").font(.caption).foregroundStyle(.secondary)
-            OraInput(text: $text1, placeholder: "Inline edit…", variant: .ghost)
-        }
-
-        Group {
-            Text("Sizes").font(.caption).foregroundStyle(.secondary)
-            OraInput(text: $text1, placeholder: "Small", size: .sm)
-            OraInput(text: $text1, placeholder: "Medium")
-            OraInput(text: $text1, placeholder: "Large", size: .lg)
-        }
-
-        Group {
-            Text("With icons").font(.caption).foregroundStyle(.secondary)
-            OraInput(
-                text: $text1,
-                placeholder: "Search engines…",
-                leadingIcon: "magnifyingglass",
-                trailingIcon: "xmark.circle.fill"
-            )
-            OraInput(text: $text1, placeholder: "Password", isSecure: true, leadingIcon: "lock", trailingIcon: "eye")
-        }
-    }
-    .padding(24)
-    .frame(width: 360)
-    .withTheme()
-}
+// #Preview {
+//     @Previewable @State var text1 = ""
+//     @Previewable @State var text2 = "ora-browser"
+//     @Previewable @State var text3 = ""
+//     @Previewable @State var text4 = ""
+//     @Previewable @State var text5 = ""
+//     @Previewable @State var text6 = ""
+//
+//     VStack(alignment: .leading, spacing: 20) {
+//         Group {
+//             Text("Default").font(.caption).foregroundStyle(.secondary)
+//             OraInput(text: $text1, placeholder: "Enter value…")
+//             OraInput(text: $text2, placeholder: "Enter value…", label: "Repository name")
+//             OraInput(
+//                 text: $text3,
+//                 placeholder: "Enter value…",
+//                 label: "With hint",
+//                 hint: "This is a helper message"
+//             )
+//             OraInput(
+//                 text: $text4,
+//                 placeholder: "Enter value…",
+//                 label: "With error",
+//                 error: "This field is required"
+//             )
+//         }
+//
+//         Group {
+//             Text("Outline").font(.caption).foregroundStyle(.secondary)
+//             OraInput(text: $text5, placeholder: "Search…", variant: .outline, leadingIcon: "magnifyingglass")
+//             OraInput(text: $text6, placeholder: "Disabled", variant: .outline, isDisabled: true)
+//         }
+//
+//         Group {
+//             Text("Ghost").font(.caption).foregroundStyle(.secondary)
+//             OraInput(text: $text1, placeholder: "Inline edit…", variant: .ghost)
+//         }
+//
+//         Group {
+//             Text("Sizes").font(.caption).foregroundStyle(.secondary)
+//             OraInput(text: $text1, placeholder: "Small", size: .sm)
+//             OraInput(text: $text1, placeholder: "Medium")
+//             OraInput(text: $text1, placeholder: "Large", size: .lg)
+//         }
+//
+//         Group {
+//             Text("With icons").font(.caption).foregroundStyle(.secondary)
+//             OraInput(
+//                 text: $text1,
+//                 placeholder: "Search engines…",
+//                 leadingIcon: "magnifyingglass",
+//                 trailingIcon: "xmark.circle.fill"
+//             )
+//             OraInput(text: $text1, placeholder: "Password", isSecure: true, leadingIcon: "lock", trailingIcon: "eye")
+//         }
+//     }
+//     .padding(24)
+//     .frame(width: 360)
+//     .withTheme()
+// }

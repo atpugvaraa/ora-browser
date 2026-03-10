@@ -67,7 +67,7 @@ struct GradientAnimatingBorder: ViewModifier {
                     }
                 }
             }
-            .onChange(of: trigger) { _, newTrigger in
+            .onChange(of: trigger) { newTrigger in
                 if newTrigger {
                     showBorder = true
                     isAnimating = false

@@ -1,5 +1,5 @@
 import AppKit
-import Inject
+
 import SwiftUI
 
 struct BrowserView: View {
@@ -12,7 +12,7 @@ struct BrowserView: View {
     @EnvironmentObject private var sidebarManager: SidebarManager
     @EnvironmentObject private var toolbarManager: ToolbarManager
 
-    @ObserveInjection var inject
+
 
     @State private var isMouseOverURLBar = false
     @State private var showFloatingURLBar = false
@@ -54,7 +54,6 @@ struct BrowserView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .enableInjection()
         .animation(.easeOut(duration: 0.1), value: showFloatingSidebar)
         .onReceive(NotificationCenter.default.publisher(for: .toggleSidebar)) { _ in
             sidebarManager.toggleSidebar()

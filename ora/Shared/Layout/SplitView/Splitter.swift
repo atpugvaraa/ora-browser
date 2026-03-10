@@ -79,7 +79,7 @@ public struct Splitter: SplitDivider {
         // hidden when the side is hidden (styling.hideSplitter is true), then set the
         // splitter color to clear. When the splitter is actually hidden, it doesn't even
         // exist, but when previewing it does, so we have to make it invisible this way.
-        .onChange(of: styling.previewHide) { _, hide in
+        .onChange(of: styling.previewHide) { hide in
             if hide {
                 dividerColor = styling.hideSplitter ? .clear : privateColor ?? color
             } else {

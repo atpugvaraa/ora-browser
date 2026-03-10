@@ -1,5 +1,5 @@
 import Foundation
-import Inject
+
 import SwiftData
 import SwiftUI
 
@@ -24,7 +24,7 @@ struct OraRoot: View {
     @StateObject private var toolbarManager = ToolbarManager()
     @StateObject private var dialogManager = DialogManager()
 
-    @ObserveInjection var inject
+
 
     let tabContext: ModelContext
     let historyContext: ModelContext
@@ -104,7 +104,6 @@ struct OraRoot: View {
             .modelContext(historyContext)
             .modelContext(downloadContext)
             .withTheme()
-            .enableInjection()
             .onAppear {
                 // Dialog keyboard shortcuts (highest priority — checked first)
                 keyModifierListener.registerKeyDownHandler { event in
@@ -161,6 +160,10 @@ struct OraRoot: View {
                         updateService.checkForUpdatesInBackground()
                     }
                 }
+                NotificationCenter.default.addObserver(forName: .newTab, object: nil, queue: .main) { note in
+                    guard note.object as? NSWindow === window ?? NSApp.keyWindow else { return }
+                    _ = tabManager.addTab(container: tabManager.activeContainer ?? tabManager.createContainer(), isPrivate: privacyMode.isPrivate)
+                }
                 NotificationCenter.default.addObserver(forName: .showLauncher, object: nil, queue: .main) { note in
                     guard note.object as? NSWindow === window ?? NSApp.keyWindow else { return }
                     if tabManager.activeTab != nil {
@@ -187,6 +190,12 @@ struct OraRoot: View {
                     guard note.object as? NSWindow === window ?? NSApp.keyWindow else { return }
                     withAnimation(.easeInOut(duration: 0.2)) {
                         toolbarManager.isToolbarHidden.toggle()
+                    }
+                }
+                NotificationCenter.default.addObserver(forName: .toggleSidebar, object: nil, queue: .main) { note in
+                    guard note.object as? NSWindow === window ?? NSApp.keyWindow else { return }
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        sidebarManager.isSidebarHidden.toggle()
                     }
                 }
                 NotificationCenter.default.addObserver(forName: .reloadPage, object: nil, queue: .main) { note in

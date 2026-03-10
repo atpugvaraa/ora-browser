@@ -442,7 +442,7 @@ final class PasswordAutofillCoordinator {
             return window
         }
 
-        if let appDelegate = NSApp.delegate as? AppDelegate {
+        if let appDelegate = NSApp.delegate as? OraAppDelegate {
             return appDelegate.getWindow()
         }
 

@@ -1,6 +1,6 @@
 import AppKit
 import CoreImage
-import FaviconFinder
+
 import SwiftUI
 
 final class FaviconService: ObservableObject {
@@ -134,18 +134,7 @@ final class FaviconService: ObservableObject {
     }
 
     private func fetchFaviconPayload(for domain: String) async -> (image: NSImage, data: Data, sourceURL: URL)? {
-        guard let siteURL = canonicalURL(for: domain) else { return nil }
-
-        do {
-            let favicon = try await FaviconFinder(url: siteURL)
-                .fetchFaviconURLs()
-                .download()
-                .largest()
-            guard let faviconImage = favicon.image else { return nil }
-            return (faviconImage.image, faviconImage.data, favicon.url.source)
-        } catch {
-            return nil
-        }
+        return nil
     }
 
     func downloadAndSaveFavicon(

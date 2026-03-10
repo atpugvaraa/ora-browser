@@ -429,8 +429,8 @@ extension FileManager {
 }
 
 extension NSColor {
-    convenience init?(hex: String) {
-        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+    convenience init?(oraHex: String) {
+        let hex = oraHex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int: UInt64 = 0
         Scanner(string: hex).scanHexInt64(&int)
 
@@ -454,7 +454,7 @@ extension NSColor {
         self.init(calibratedRed: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: CGFloat(a))
     }
 
-    func toHex() -> String? {
+    func toOraHex() -> String? {
         guard let color = usingColorSpace(.deviceRGB) else { return nil }
         // swiftlint:disable:next identifier_name
         let r = Int(color.redComponent * 255)
